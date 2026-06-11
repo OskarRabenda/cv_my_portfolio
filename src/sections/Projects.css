@@ -1,0 +1,16 @@
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.projects__description {
+  color: var(--color-text-muted);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.projects__tags {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}

@@ -1,0 +1,27 @@
+.hero {
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.hero__name {
+  font-size: var(--font-size-2xl);
+}
+
+.hero__title {
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  margin-top: var(--space-sm);
+}
+
+.hero__tagline {
+  color: var(--color-text-muted);
+  max-width: 36rem;
+  margin: var(--space-md) auto 0;
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}

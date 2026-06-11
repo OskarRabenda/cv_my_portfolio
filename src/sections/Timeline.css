@@ -1,0 +1,32 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.timeline__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.timeline__heading h3 {
+  font-size: var(--font-size-lg);
+}
+
+.timeline__org {
+  color: var(--color-accent);
+}
+
+.timeline__period {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.timeline__description {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+}

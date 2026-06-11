@@ -1,0 +1,8 @@
+.tag {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-radius: 999px;
+  padding: var(--space-xs) var(--space-md);
+}
