@@ -14,14 +14,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: var(--space-md);
+  gap: 5px;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-@media (max-width: 560px) {
-  .navbar__list {
-    gap: var(--space-sm);
-  }
 }
