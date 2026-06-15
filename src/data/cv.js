@@ -1,7 +1,7 @@
 // All CV content lives here — edit this file to update the website.
 export const cv = {
   name: 'Oskar Rabenda',
-  title: 'Student at TU Eindhoven',
+  title: 'Computer Science and Engineering Student at TU/e',
   tagline: 'Replace this with a one-sentence pitch about yourself.',
   email: 'your.email@example.com',
   location: 'Eindhoven, Netherlands',

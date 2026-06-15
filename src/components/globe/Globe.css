@@ -1,0 +1,85 @@
+.globe {
+  position: relative;
+  max-width: 100%;
+}
+
+.globe__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.globe--error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Marker that appears over Eindhoven once the globe settles */
+.globe__marker {
+  position: absolute;
+  pointer-events: none;
+  animation: marker-in 0.5s ease both;
+}
+
+.globe__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-accent) 70%, transparent);
+}
+
+.globe__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  animation: marker-pulse 1.8s ease-out infinite;
+}
+
+.globe__label {
+  position: absolute;
+  left: 16px;
+  top: -12px;
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-sm);
+  backdrop-filter: blur(6px);
+}
+
+@keyframes marker-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes marker-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
