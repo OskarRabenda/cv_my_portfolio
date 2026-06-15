@@ -1,0 +1,50 @@
+.gradient-bg {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gradient-bg__layer {
+  position: absolute;
+  inset: 0;
+}
+
+.gradient-bg__base {
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #05080f 20%,
+    #032f3a 40%,
+    #0891b2 70%,
+    #22d3ee 100%
+  );
+}
+
+.gradient-bg__noise {
+  opacity: 0.05;
+  background-image: url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png');
+  background-size: 149.76px;
+  background-repeat: repeat;
+}
+
+.gradient-bg__grid {
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.gradient-bg__diagonal {
+  opacity: 0.1;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.gradient-bg__content {
+  position: relative;
+  z-index: 10;
+}
