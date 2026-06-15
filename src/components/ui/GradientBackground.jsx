@@ -3,11 +3,11 @@ import './GradientBackground.css';
 // Base vertical color stops (percent positions). `offset` shifts them all
 // down, so a larger offset pushes the gradient — and where it ends — lower.
 const BASE_STOPS = [
-  ['#000000', 0],
-  ['#05080f', 20],
-  ['#032f3a', 40],
-  ['#0891b2', 70],
-  ['#22d3ee', 100],
+  ['var(--grad-0)', 0],
+  ['var(--grad-1)', 20],
+  ['var(--grad-2)', 40],
+  ['var(--grad-3)', 70],
+  ['var(--grad-4)', 100],
 ];
 
 export function GradientBackground({ children, offset = 53, className = '' }) {

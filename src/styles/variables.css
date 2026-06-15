@@ -1,5 +1,5 @@
 :root {
-  /* Colors */
+  /* Colors — dark theme (default) */
   --color-bg: #0f1115;
   --color-surface: #1a1d24;
   --color-border: #2a2e38;
@@ -7,6 +7,14 @@
   --color-text-muted: #9aa1ad;
   --color-accent: #5b8cff;
   --color-accent-hover: #7aa2ff;
+
+  /* Gradient background stops + grid overlay color */
+  --grad-0: #000000;
+  --grad-1: #05080f;
+  --grad-2: #032f3a;
+  --grad-3: #0891b2;
+  --grad-4: #22d3ee;
+  --grid-line: rgba(255, 255, 255, 0.1);
 
   /* Typography */
   --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
@@ -27,4 +35,22 @@
   --radius: 8px;
   --max-width: 960px;
   --transition: 0.2s ease;
+}
+
+/* Light theme overrides */
+[data-theme='light'] {
+  --color-bg: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-border: #cbd5e1;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-accent: #0891b2;
+  --color-accent-hover: #0e7490;
+
+  --grad-0: #ffffff;
+  --grad-1: #f0fbff;
+  --grad-2: #cffafe;
+  --grad-3: #67e8f9;
+  --grad-4: #22d3ee;
+  --grid-line: rgba(15, 23, 42, 0.08);
 }
