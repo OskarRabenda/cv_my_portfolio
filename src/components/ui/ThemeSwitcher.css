@@ -1,13 +1,14 @@
 .theme-switch {
   position: fixed;
+  /* same y as the nav buttons: nav padding (16px) + half its 40px height = same center */
   top: var(--space-md);
   right: var(--space-md);
   z-index: 30;
   display: inline-flex;
   align-items: center;
-  width: 104px;
-  height: 64px;
-  padding: 6px;
+  width: 70px;
+  height: 40px; /* matches nav button height (2.5rem) */
+  padding: 5px;
   border-radius: 9999px;
   border: 2px solid;
   cursor: pointer;
@@ -56,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding: 0 8px;
   pointer-events: none;
   color: var(--grad-4, #22d3ee);
   opacity: 0.55;
@@ -68,8 +69,8 @@
 }
 
 .theme-switch__icons svg {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
 }
 
 /* Sliding thumb */
@@ -79,8 +80,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 26px;
+  height: 26px;
   border-radius: 9999px;
   border: 2px solid;
   /* bouncy spring-like overshoot */
@@ -89,8 +90,8 @@
 }
 
 .theme-switch__thumb svg {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   position: relative;
   z-index: 1;
 }
@@ -108,7 +109,7 @@
 }
 
 .theme-switch--dark .theme-switch__thumb {
-  transform: translateX(44px);
+  transform: translateX(30px);
   background: linear-gradient(145deg, #64748b 0%, #475569 50%, #334155 100%);
   border-color: rgba(148, 163, 184, 0.3);
   box-shadow:

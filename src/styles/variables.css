@@ -51,10 +51,10 @@
   --color-accent-hover: #0e7490;
 
   --grad-0: #ffffff;
-  --grad-1: #fffdf2;
-  --grad-2: #fef3c7;
-  --grad-3: #fcd34d;
-  --grad-4: #f59e0b;
+  --grad-1: #fffbeb;
+  --grad-2: #fcd34d;
+  --grad-3: #f59e0b;
+  --grad-4: #d97706;
   --grid-line: rgba(15, 23, 42, 0.08);
 
   --globe-point: #f59e0b;
