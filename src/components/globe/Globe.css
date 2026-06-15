@@ -34,8 +34,8 @@
   height: 10px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--color-accent) 70%, transparent);
+  background: var(--globe-point);
+  box-shadow: 0 0 12px 2px color-mix(in srgb, var(--globe-point) 70%, transparent);
 }
 
 .globe__dot::after {
@@ -43,7 +43,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid var(--color-accent);
+  border: 2px solid var(--globe-point);
   animation: marker-pulse 1.8s ease-out infinite;
 }
 

@@ -16,6 +16,9 @@
   --grad-4: #22d3ee;
   --grid-line: rgba(255, 255, 255, 0.1);
 
+  /* Globe marker point */
+  --globe-point: var(--color-accent);
+
   /* Typography */
   --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-size-sm: 0.875rem;
@@ -48,9 +51,11 @@
   --color-accent-hover: #0e7490;
 
   --grad-0: #ffffff;
-  --grad-1: #f0fbff;
-  --grad-2: #cffafe;
-  --grad-3: #67e8f9;
-  --grad-4: #22d3ee;
+  --grad-1: #fffdf2;
+  --grad-2: #fef3c7;
+  --grad-3: #fcd34d;
+  --grad-4: #f59e0b;
   --grid-line: rgba(15, 23, 42, 0.08);
+
+  --globe-point: #f59e0b;
 }
