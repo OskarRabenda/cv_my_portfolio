@@ -6,14 +6,14 @@
   justify-content: center;
   gap: 0.5rem;
   white-space: nowrap;
-  /* size between the source "xl"/"xxl" — sized for a nav row */
-  height: 3rem;
-  padding: 0 2rem;
+  /* compact nav-row sizing */
+  height: 2.5rem;
+  padding: 0 1.5rem;
   border: none;
   background: transparent;
   color: var(--color-text);
   font-family: inherit;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: 500;
   border-radius: 0.375rem; /* rounded-md */
   cursor: pointer;
@@ -60,7 +60,7 @@
   pointer-events: none;
 }
 
-/* Teal/cyan hover gradient — only along the BOTTOM edge of the button */
+/* Teal/cyan hover gradient — concentrated on the BOTTOM border of the button */
 .liquid-button::after {
   content: '';
   position: absolute;
@@ -72,10 +72,11 @@
   transition: opacity 0.3s ease;
   background: linear-gradient(
     to top,
-    rgba(34, 211, 238, 0.4) 0%,
-    rgba(8, 145, 178, 0.16) 35%,
-    transparent 65%
+    rgba(34, 211, 238, 0.85) 0%,
+    rgba(34, 211, 238, 0.35) 8%,
+    transparent 22%
   );
+  box-shadow: inset 0 -2px 6px -2px rgba(34, 211, 238, 0.7);
 }
 
 .liquid-button:hover::after {
