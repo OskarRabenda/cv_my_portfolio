@@ -1,12 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import { useTheme } from '../../theme/ThemeProvider.jsx';
 import './Globe.css';
 
 // Eindhoven, Netherlands
 const EINDHOVEN = { lng: 5.4697, lat: 51.4416 };
 
+// Light mode inverts the dark palette: light ocean, dark lines/dots.
+const PALETTES = {
+  dark: { ocean: '#05060a', line: '#ffffff', dot: '#8a8f99' },
+  light: { ocean: '#f8fafc', line: '#0f172a', dot: '#475569' },
+};
+
 export default function Globe({ size = 540, className = '' }) {
+  const { theme } = useTheme();
   const canvasRef = useRef(null);
+  const colorsRef = useRef(PALETTES[theme] || PALETTES.dark);
+  const renderRef = useRef(() => {});
   const [marker, setMarker] = useState({ x: 0, y: 0, visible: false });
   const [error, setError] = useState(null);
 
@@ -102,6 +112,7 @@ export default function Globe({ size = 540, className = '' }) {
     let landed = false;
 
     const render = () => {
+      const colors = colorsRef.current;
       context.clearRect(0, 0, dimension, dimension);
       const currentScale = projection.scale();
       const scaleFactor = currentScale / baseScale;
@@ -109,9 +120,9 @@ export default function Globe({ size = 540, className = '' }) {
       // Ocean / globe body
       context.beginPath();
       context.arc(cx, cy, currentScale, 0, 2 * Math.PI);
-      context.fillStyle = '#05060a';
+      context.fillStyle = colors.ocean;
       context.fill();
-      context.strokeStyle = '#ffffff';
+      context.strokeStyle = colors.line;
       context.lineWidth = 1.5 * scaleFactor;
       context.stroke();
 
@@ -120,7 +131,7 @@ export default function Globe({ size = 540, className = '' }) {
         const graticule = d3.geoGraticule();
         context.beginPath();
         path(graticule());
-        context.strokeStyle = '#ffffff';
+        context.strokeStyle = colors.line;
         context.lineWidth = 0.8 * scaleFactor;
         context.globalAlpha = 0.18;
         context.stroke();
@@ -129,7 +140,7 @@ export default function Globe({ size = 540, className = '' }) {
         // Land outlines
         context.beginPath();
         landFeatures.features.forEach((feature) => path(feature));
-        context.strokeStyle = '#ffffff';
+        context.strokeStyle = colors.line;
         context.lineWidth = 1 * scaleFactor;
         context.globalAlpha = 0.55;
         context.stroke();
@@ -147,12 +158,13 @@ export default function Globe({ size = 540, className = '' }) {
           ) {
             context.beginPath();
             context.arc(projected[0], projected[1], 1.1 * scaleFactor, 0, 2 * Math.PI);
-            context.fillStyle = '#8a8f99';
+            context.fillStyle = colors.dot;
             context.fill();
           }
         });
       }
     };
+    renderRef.current = render;
 
     // --- intro animation: fast spin -> decelerate -> zoom into Eindhoven ---
     const targetRotation = [-EINDHOVEN.lng, -EINDHOVEN.lat];
@@ -219,6 +231,12 @@ export default function Globe({ size = 540, className = '' }) {
       if (animTimer) animTimer.stop();
     };
   }, [size]);
+
+  // Recolor + repaint on theme change without re-fetching the map data.
+  useEffect(() => {
+    colorsRef.current = PALETTES[theme] || PALETTES.dark;
+    renderRef.current();
+  }, [theme]);
 
   if (error) {
     return (
