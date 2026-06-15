@@ -10,7 +10,7 @@ const BASE_STOPS = [
   ['#22d3ee', 100],
 ];
 
-export function GradientBackground({ children, offset = 15, className = '' }) {
+export function GradientBackground({ children, offset = 53, className = '' }) {
   const gradient = `linear-gradient(180deg, ${BASE_STOPS.map(
     ([color, pos]) => `${color} ${pos + offset}%`
   ).join(', ')})`;
