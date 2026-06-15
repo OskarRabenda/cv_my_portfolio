@@ -63,9 +63,9 @@
   opacity: 0.55;
 }
 
-/* Light mode uses yellow icons instead of the cyan gradient color */
+/* Light mode uses a creamy yellow instead of the cyan gradient color */
 .theme-switch--light .theme-switch__icons {
-  color: #f59e0b;
+  color: #d6bb66;
 }
 
 .theme-switch__icons svg {
@@ -105,7 +105,7 @@
     inset -2px -2px 4px rgba(255, 255, 255, 1),
     0 8px 24px rgba(0, 0, 0, 0.18),
     0 4px 12px rgba(0, 0, 0, 0.12);
-  color: #f59e0b;
+  color: #d6bb66;
 }
 
 .theme-switch--dark .theme-switch__thumb {
