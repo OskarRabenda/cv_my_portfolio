@@ -1,17 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './theme/ThemeProvider.jsx';
 import { GradientBackground } from './components/ui/GradientBackground.jsx';
 import { NavBar } from './components/ui/NavBar.jsx';
 import { ThemeSwitcher } from './components/ui/ThemeSwitcher.jsx';
 import Hero from './sections/Hero.jsx';
+import Contact from './pages/Contact.jsx';
 
 export default function App() {
   return (
     <ThemeProvider>
-      <GradientBackground>
-        <NavBar />
-        <Hero />
-      </GradientBackground>
-      <ThemeSwitcher />
+      <BrowserRouter>
+        <GradientBackground>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </GradientBackground>
+        <ThemeSwitcher />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

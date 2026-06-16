@@ -1,16 +1,27 @@
+import { useNavigate } from 'react-router-dom';
 import { LiquidGlassButton, GlassFilter } from './LiquidGlassButton.jsx';
 import './NavBar.css';
 
-// Non-functional for now — these will route to their own pages later.
-const LINKS = ['Education', 'Projects', 'Skillset', 'Contact', 'About me'];
+// `to` makes a button navigate; the rest are non-functional for now.
+const LINKS = [
+  { label: 'Education' },
+  { label: 'Projects' },
+  { label: 'Skillset' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'About me' },
+];
 
 export function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar">
       <ul className="navbar__list">
-        {LINKS.map((label) => (
-          <li key={label}>
-            <LiquidGlassButton>{label}</LiquidGlassButton>
+        {LINKS.map((link) => (
+          <li key={link.label}>
+            <LiquidGlassButton onClick={() => link.to && navigate(link.to)}>
+              {link.label}
+            </LiquidGlassButton>
           </li>
         ))}
       </ul>
