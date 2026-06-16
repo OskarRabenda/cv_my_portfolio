@@ -10,13 +10,18 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <GradientBackground>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </GradientBackground>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <GradientBackground>
+                <Hero />
+              </GradientBackground>
+            }
+          />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
         <ThemeSwitcher />
       </BrowserRouter>
     </ThemeProvider>
