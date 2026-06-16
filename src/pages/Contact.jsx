@@ -31,7 +31,7 @@ const socials = [
 export default function Contact() {
   return (
     <section className="contact-page">
-      <h1 className="contact-title">Contact me</h1>
+      <h1 className="contact-title">Contact Me</h1>
       <IconGrid items={socials} />
     </section>
   );
