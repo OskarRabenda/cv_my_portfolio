@@ -31,9 +31,7 @@ const socials = [
 export default function Contact() {
   return (
     <section className="contact-page">
-      <a className="contact-cta" href={`mailto:${GMAIL}`}>
-        Contact me
-      </a>
+      <h1 className="contact-title">Contact me</h1>
       <IconGrid items={socials} />
     </section>
   );

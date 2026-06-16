@@ -10,30 +10,18 @@
   gap: var(--space-lg);
 }
 
-/* Call-to-action in the same tile style as the icons */
-.contact-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 200px;
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
-  color: var(--color-text);
-  font-size: var(--font-size-lg);
+/* Caption styled like the homepage name: Outfit, large, subtle glow */
+.contact-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 600;
-  text-decoration: none;
-  backdrop-filter: blur(6px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-align: center;
+  color: var(--color-text);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--color-text) 35%, transparent),
+    0 0 8px color-mix(in srgb, var(--color-text) 25%, transparent);
   opacity: 0;
   animation: contact-rise 0.6s ease-out both;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-cta:hover {
-  transform: translateY(-4px);
-  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
 }
 
 @keyframes contact-rise {
