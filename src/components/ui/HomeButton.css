@@ -1,0 +1,37 @@
+.home-button {
+  position: fixed;
+  /* same y as the nav buttons and theme switcher */
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  color: var(--color-text);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.home-button:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  color: var(--color-accent);
+}
+
+.home-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.home-button svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
