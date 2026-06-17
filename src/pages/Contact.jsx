@@ -12,8 +12,12 @@ const OUTLOOK = 'o.a.rabenda@student.tue.nl';
 
 const socials = [
   { id: 'github', name: 'GitHub', href: 'https://github.com/OskarRabenda', icon: <GithubIcon /> },
-  // LinkedIn intentionally non-functional for now (no href).
-  { id: 'linkedin', name: 'LinkedIn', icon: <LinkedinIcon /> },
+  {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/oskar-rabenda-7497722ab/',
+    icon: <LinkedinIcon />,
+  },
   {
     id: 'outlook',
     name: 'Outlook',
