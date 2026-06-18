@@ -1,0 +1,83 @@
+.about-page {
+  min-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 96px var(--space-md) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Generic minimal social-post card */
+.about-card {
+  width: 100%;
+  max-width: 560px;
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  animation: about-rise 0.6s ease-out both;
+}
+
+.about-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.about-avatar {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-accent) 20%, var(--color-surface));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-avatar__initials {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.about-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.about-card__text {
+  margin: 0;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 88%, transparent);
+}
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card {
+    animation: none;
+    opacity: 1;
+  }
+}

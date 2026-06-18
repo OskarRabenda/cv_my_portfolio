@@ -8,7 +8,7 @@ const LINKS = [
   { label: 'Projects' },
   { label: 'Skillset' },
   { label: 'Contact', to: '/contact' },
-  { label: 'About me' },
+  { label: 'About me', to: '/about' },
 ];
 
 export function NavBar() {
