@@ -9,6 +9,28 @@
   height: auto;
 }
 
+/* Entrance: globe pops out from the screen (scale up with a springy overshoot) */
+.globe__canvas--in {
+  animation: globe-pop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes globe-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe__canvas--in {
+    animation: none;
+  }
+}
+
 .globe--error {
   display: flex;
   align-items: center;

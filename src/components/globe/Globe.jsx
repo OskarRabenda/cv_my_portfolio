@@ -12,11 +12,15 @@ const PALETTES = {
   light: { ocean: '#f8fafc', line: '#0f172a', dot: '#475569' },
 };
 
+// Duration of the CSS "pop in" entrance; the spin starts once it finishes.
+const POP_MS = 650;
+
 export default function Globe({ size = 540, className = '' }) {
   const { theme } = useTheme();
   const canvasRef = useRef(null);
   const colorsRef = useRef(PALETTES[theme] || PALETTES.dark);
   const renderRef = useRef(() => {});
+  const [ready, setReady] = useState(false);
   const [marker, setMarker] = useState({ x: 0, y: 0, visible: false });
   const [error, setError] = useState(null);
 
@@ -212,10 +216,11 @@ export default function Globe({ size = 540, className = '' }) {
         if (!response.ok) throw new Error('Failed to load land data');
         landFeatures = await response.json();
 
-        // Draw the base globe (ocean + graticule + coastlines) and start
-        // spinning right away so it appears instantly.
+        // Draw the static globe, let it "pop in" via CSS, then start the spin
+        // once the entrance has finished (pop -> spin -> point to Eindhoven).
         render();
-        startAnimation();
+        setReady(true);
+        setTimeout(startAnimation, POP_MS);
 
         // The halftone dots are CPU-heavy (thousands of point-in-polygon
         // tests); build them after the first frames so they don't block the
@@ -255,7 +260,10 @@ export default function Globe({ size = 540, className = '' }) {
 
   return (
     <div className={`globe ${className}`} style={{ width: size, height: size }}>
-      <canvas ref={canvasRef} className="globe__canvas" />
+      <canvas
+        ref={canvasRef}
+        className={`globe__canvas ${ready ? 'globe__canvas--in' : ''}`}
+      />
       {marker.visible && (
         <div className="globe__marker" style={{ left: marker.x, top: marker.y }}>
           <span className="globe__dot" />

@@ -47,8 +47,7 @@
 }
 
 .hero__name,
-.hero__subtitle,
-.hero__globe {
+.hero__subtitle {
   opacity: 0;
   animation: fade-up 0.6s ease-out both;
 }
@@ -59,10 +58,6 @@
 
 .hero__subtitle {
   animation-delay: 0.2s;
-}
-
-.hero__globe {
-  animation-delay: 0.3s;
 }
 
 @media (prefers-reduced-motion: reduce) {
