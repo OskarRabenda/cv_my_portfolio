@@ -3,7 +3,8 @@ import { cv } from '../data/cv.js';
 import './About.css';
 
 const PARAGRAPHS = [
-  "My name is Oskar Rabenda. Born on 15 December 2007 in Wroclaw, Poland, I graduated from an International Baccalaureate high school before relocating to the Netherlands at the age of 17 to pursue a Bachelor's degree in Computer Science and Engineering at Eindhoven University of Technology (TU/e).",
+  'My name is Oskar Rabenda. Born on 15 December 2007 in Wroclaw, Poland.',
+  "I graduated from an International Baccalaureate high school before relocating to the Netherlands at the age of 17 to pursue a Bachelor's degree in Computer Science and Engineering at Eindhoven University of Technology (TU/e).",
   'I am an ambitious and driven student with a particular interest in cybersecurity and AI, eager to grow both academically and professionally in these fields.',
 ];
 
