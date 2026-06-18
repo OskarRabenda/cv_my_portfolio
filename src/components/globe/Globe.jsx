@@ -212,14 +212,21 @@ export default function Globe({ size = 540, className = '' }) {
         if (!response.ok) throw new Error('Failed to load land data');
         landFeatures = await response.json();
 
-        landFeatures.features.forEach((feature) => {
-          generateDotsInPolygon(feature, 16).forEach(([lng, lat]) => {
-            allDots.push({ lng, lat });
-          });
-        });
-
+        // Draw the base globe (ocean + graticule + coastlines) and start
+        // spinning right away so it appears instantly.
         render();
         startAnimation();
+
+        // The halftone dots are CPU-heavy (thousands of point-in-polygon
+        // tests); build them after the first frames so they don't block the
+        // globe's initial paint. They fill in a moment later as it rotates.
+        setTimeout(() => {
+          landFeatures.features.forEach((feature) => {
+            generateDotsInPolygon(feature, 16).forEach(([lng, lat]) => {
+              allDots.push({ lng, lat });
+            });
+          });
+        }, 0);
       } catch (err) {
         setError('Failed to load globe data');
       }
