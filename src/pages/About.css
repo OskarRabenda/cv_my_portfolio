@@ -8,29 +8,24 @@
   justify-content: center;
 }
 
-/* Generic minimal social-post card */
-.about-card {
+/* No card — just the avatar, name, and paragraphs on the page */
+.about-content {
   width: 100%;
-  max-width: 560px;
-  padding: var(--space-lg);
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  max-width: 760px;
   opacity: 0;
   animation: about-rise 0.6s ease-out both;
 }
 
-.about-card__head {
+.about-head {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .about-avatar {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
@@ -52,16 +47,24 @@
   color: var(--color-text);
 }
 
-.about-card__name {
-  font-size: var(--font-size-lg);
+.about-name {
+  font-size: var(--font-size-xl);
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--color-text) 30%, transparent),
+    0 0 8px color-mix(in srgb, var(--color-text) 20%, transparent);
 }
 
-.about-card__text {
+.about-text p {
   margin: 0;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: color-mix(in srgb, var(--color-text) 88%, transparent);
+}
+
+.about-text p + p {
+  margin-top: var(--space-md);
 }
 
 @keyframes about-rise {
@@ -76,7 +79,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .about-card {
+  .about-content {
     animation: none;
     opacity: 1;
   }
