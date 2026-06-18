@@ -206,9 +206,9 @@ export default function Globe({ size = 540, className = '' }) {
 
     const loadWorldData = async () => {
       try {
-        const response = await fetch(
-          'https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json'
-        );
+        // Served from our own /public (same-origin, cached) instead of GitHub,
+        // so the globe's intro animation starts immediately on refresh.
+        const response = await fetch('/ne_110m_land.json');
         if (!response.ok) throw new Error('Failed to load land data');
         landFeatures = await response.json();
 
